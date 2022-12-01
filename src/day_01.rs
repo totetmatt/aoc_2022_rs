@@ -8,7 +8,6 @@ fn main() {
         // Consumes the iterator, returns an (Optional) String
         for line in lines {
             if let Ok(ip) = line {
-            
                 match ip.parse::<i64>() {
                     Ok(v) => 
                         {
