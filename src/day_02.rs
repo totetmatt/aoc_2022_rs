@@ -62,11 +62,7 @@ fn main() -> Result<(), std::io::Error> {
 
                     res.find(
                         res.chars()
-                            .nth(res
-                                .find(opponent)
-                                .unwrap() 
-                                + (3 + idx) as usize
-                            )
+                            .nth(res.find(opponent).unwrap() + (3 + idx) as usize)
                             .unwrap(),
                     )
                     .unwrap() as i32
