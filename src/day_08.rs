@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::collections::HashSet;
 fn main() -> Result<(), std::io::Error> {
-    let input_file: &str = "./inputs/day_08/input";
+    let input_file: &str = "./inputs/day_08/test";
    
      
     let file = &File::open(input_file)?;
@@ -13,12 +13,11 @@ fn main() -> Result<(), std::io::Error> {
     ).collect();
 
     let width = map.first().unwrap().len();
+    let height = map.len();
     let line_scan: HashSet<(usize, usize)>= map.iter().enumerate().map(
         | (y,line)|{
         
             let mut valid : HashSet<(usize,usize)> = HashSet::from([(y,0), (y,line.len()-1)]);
-
-
             let mut max : u8 = line.first().unwrap().to_owned();
             for x in 1..line.len() {
                 let current = line .get(x).unwrap().to_owned();
@@ -57,8 +56,6 @@ fn main() -> Result<(), std::io::Error> {
             | (x,line)|{
             
                 let mut valid : HashSet<(usize,usize)> = HashSet::from([(0,x), (line.len()-1,x)]);
-    
-             
                 let mut max : u8 = line.first().unwrap().to_owned();
                 for y in 1..line.len() {
                     let current = line .get(y).unwrap().to_owned();
@@ -85,8 +82,28 @@ fn main() -> Result<(), std::io::Error> {
         ).unwrap();
  
 
-    let line_scan = line_scan.union(&col_scan).count();
+    let nb_visible = line_scan.union(&col_scan).count();
 
-    println!("{line_scan:?}");
+    println!("{nb_visible:?}");
+
+    // Part 2 
+
+
+    let part2 = (0..height)
+    .for_each(|y| 
+                (0..width)
+                .for_each(|x| {
+                    let line = map.get(y).unwrap();
+
+         
+                    let col : Vec<u8> = map.iter().map(|h| h.get(x).unwrap().to_owned()).collect();
+                    let current = line.get(x).unwrap();
+                    
+                   
+
+                    println!("( x={x}, y={y} ) {current:?} {line:?} {col:?}");
+                    })
+        );
+
     Ok(())
 }

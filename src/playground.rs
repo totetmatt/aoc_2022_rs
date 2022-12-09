@@ -2,10 +2,11 @@ use std::collections::HashMap;
 fn main() {
     
 
-    let q = vec![1,2,3];
+    let q = vec![1,2,3,4];
     let l = q.len();
-    println!("{l:?}");
-    (0..q.len()-1).rev().for_each(|x| {
-        let qq = q.get(x);
-        println!("{x} {qq:?}")});
+    
+
+    let q = q.iter().find(|x| x >= &&7).get_or_insert(1).unwrap_or_default();
+    println!("{q:?}")
+   
 }
