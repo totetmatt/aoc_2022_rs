@@ -1,11 +1,12 @@
 use std::collections::HashMap;
-fn main() -> Result<(), std::io::Error> {
-    let mut vec = vec![1, 2, 3];
+fn main() {
+    
 
-    let mut vec2 = vec![10, 11, 12];
+    let q = vec![1,2,3,4];
+    let l = q.len();
+    
 
-    vec.append(&mut vec2);
-    println!("{vec:?}");
-    println!("{vec2:?}");
-    Ok(())
+    let q = q.iter().find(|x| x >= &&7).get_or_insert(1).unwrap_or_default();
+    println!("{q:?}")
+   
 }
