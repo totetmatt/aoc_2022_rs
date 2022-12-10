@@ -66,7 +66,8 @@ fn main() -> Result<(), std::io::Error> {
             let q: i32 = fs.iter()
             .filter(
                 |((_,d),_)| &d[0..d.len()-1] == x.as_slice()
-            ).map(|((_,_),y)| y )
+            )
+            .map(|((_,_),y)| y )
             .sum();
             fs.entry((tx.to_owned(),x.to_owned())).and_modify(|x| *x=q);
         }
