@@ -1,8 +1,6 @@
 use std::fs::File;
 use std::io::{self, BufRead};
 
-
-
 fn main() {
     let input_file: &str = "./inputs/day_10/input";
     let file = &File::open(input_file).unwrap();
@@ -20,6 +18,7 @@ fn main() {
         }
     });
 
+    
     let part1: i32 = (19..220)
     .step_by(40)
     .map(|x| (x+1 as i32)*states.get(x as usize).unwrap())
@@ -33,6 +32,4 @@ fn main() {
         if  c >= (*x-1) &&  c <= (*x+1) {print!("⬜️")} else {print!("⬛️")} ;
        
     });
-
-    ();
 }
