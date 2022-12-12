@@ -2,11 +2,10 @@ use std::collections::HashMap;
 fn main() {
     
 
-    let q = vec![1,2,3,4];
-    let l = q.len();
-    
+    let a = 'c';
+    let b =char::from_u32(a  as u32 +1).unwrap();
 
-    let q = q.iter().find(|x| x >= &&7).get_or_insert(1).unwrap_or_default();
-    println!("{q:?}")
+    let c = a < b ;
+    println!("{b:?}")
    
 }

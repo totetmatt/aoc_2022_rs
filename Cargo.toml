@@ -43,6 +43,11 @@ path = "src/day_10.rs"
 
 
 [[bin]]
+name = "day_12"
+path = "src/day_12.rs"
+
+
+[[bin]]
 name = "playground"
 path = "src/playground.rs"
 [dependencies]
